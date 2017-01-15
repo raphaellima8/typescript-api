@@ -8,6 +8,10 @@
     "start": "./node_modules/.bin/ts-node ./server/server.ts",
     "watch": "./node_modules/.bin/nodemon -w . --ext \".ts\" --exec \"npm run start\""
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raphaellima8/typescript-api.git"
+  },
   "keywords": [
     "TypeScript",
     "API",
