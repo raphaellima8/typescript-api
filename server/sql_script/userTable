@@ -1,0 +1,6 @@
+﻿CREATE TABLE "User"
+(
+  id serial NOT NULL PRIMARY KEY,
+  "name" character varying(255),
+  email character varying(255) NOT NULL
+);

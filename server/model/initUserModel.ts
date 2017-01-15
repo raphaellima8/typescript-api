@@ -2,7 +2,7 @@ import * as ORM from 'sequelize';
 import {Sequelize} from 'sequelize';
 
 export function initUserModel(sequelize: Sequelize) {
-  return sequelize.define('Users', {
+  return sequelize.define('User', {
     id: {
       type: ORM.STRING,
       primaryKey: true,

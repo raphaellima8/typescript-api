@@ -1,7 +1,7 @@
 export interface User {
   readonly id: number,
   name: string,
-  email: string
+  email: string,
 }
 
 export function createUser({id, name, email}: any): User {
