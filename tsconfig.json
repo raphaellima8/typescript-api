@@ -1,14 +1,13 @@
 {
-    "compilerOptions": {
-      "target": "es6",
-      "module": "commonjs",
-      "declaration": false,
-      "noImplicitAny": false,
-      "sourceMap": true,
-      "removeComments": true,
-      "noLib": false,
-      "strictNullChecks": true,
-      "skipLibCheck": true,
-      "lib": ["es6"]
-    }
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "outDir": "dist"
+  },
+  "include": [
+    "server/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
