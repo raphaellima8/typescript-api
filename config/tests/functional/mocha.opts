@@ -1,0 +1,4 @@
+--require config/tests/functional/helpers.js
+--reporter spec
+--watch-extensions tsx,ts
+--slow 5000

@@ -4,7 +4,7 @@
   "description": "\"TypeScript API - Node + ES6 + Sequelize + PostgreSQL\"",
   "main": "server.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --compilers ts:ts-node/register server/**/test.ts",
     "start": "./node_modules/.bin/ts-node ./server/server.ts",
     "watch": "./node_modules/.bin/nodemon -w . --ext \".ts\" --exec \"npm run start\"",
     "node": "node dist/server.js"
@@ -25,20 +25,23 @@
   "license": "MIT",
   "devDependencies": {
     "@types/bluebird": "^3.0.37",
+    "@types/chai": "^3.4.34",
+    "@types/chai-http": "0.0.29",
     "@types/debug": "0.0.29",
     "@types/express": "^4.0.34",
     "@types/lodash": "^4.14.43",
+    "@types/mocha": "^2.2.38",
     "@types/morgan": "^1.7.32",
     "@types/node": "^6.0.52",
     "@types/sequelize": "^4.0.39",
     "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-typescript": "^3.1.1",
     "http-server": "^0.9.0",
     "mocha": "^3.2.0",
     "mysql": "^2.12.0",
     "nodemon": "^1.11.0",
-    "supertest": "^2.0.1",
     "ts-node": "^1.7.2",
     "typescript": "^2.0.6"
   },
