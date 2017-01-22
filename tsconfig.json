@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "es5",
     "module": "commonjs",
     "outDir": "dist",
     "typeRoots": [
@@ -8,7 +8,8 @@
     ]
   },
   "include": [
-    "server/**/*.ts"
+    "server/**/*.ts",
+    "config/**/*.ts"
   ],
   "exclude": [
     "node_modules"

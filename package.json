@@ -7,7 +7,9 @@
     "test": "mocha --compilers ts:ts-node/register server/**/test.ts",
     "start": "./node_modules/.bin/ts-node ./server/server.ts",
     "watch": "./node_modules/.bin/nodemon -w . --ext \".ts\" --exec \"npm run start\"",
-    "node": "node dist/server.js"
+    "node": "node dist/server/server.js",
+    "lint": "eslint 'dist/**/*.ts'",
+    "lint:fix": "eslint 'dist/**/*.js' --fix"
   },
   "repository": {
     "type": "git",
@@ -36,6 +38,13 @@
     "@types/sequelize": "^4.0.39",
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
+    "eslint": "^3.14.0",
+    "eslint-config-airbnb": "^14.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^3.0.2",
+    "eslint-plugin-react": "^6.9.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "eslint-plugin-typescript": "^0.1.0",
     "gulp": "^3.9.1",
     "gulp-typescript": "^3.1.1",
     "http-server": "^0.9.0",
