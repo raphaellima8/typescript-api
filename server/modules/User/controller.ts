@@ -5,6 +5,8 @@ import {onSuccess} from '../../api/responses/successHandler';
 import {getAllUsers} from '../../queries/getAllUsers';
 import {getUserById} from '../../queries/getUserById';
 import {createNewUser} from '../../queries/CreateUser';
+import {userUpdate} from '../../queries/UpdateUser';
+import {userDelete} from '../../queries/DeleteUser';
 import {dbErrorHandler} from '../../../config/dbErrorHandler';
 
 export function getAll(req: Request, res: Response) {
@@ -27,8 +29,17 @@ export function getById(req: Request, res: Response) {
     .catch(_.partial(onError, res, 'Not found'));
 }
 
-export function updateUser(id:string, props:any){
-
+export function updateUser(req: Request, res: Response){
+  const userId = parseInt(req.params.id);
+  const props = req.body;
+  userUpdate(userId, props)
+    .then(_.partial(onSuccess, res))
+    .catch(_.partial(onError, res, 'Update User failed'));
 }
 
-export function deleteUser(id:string){}
+export function deleteUser(req: Request, res: Response){
+  const userId = req.params.id;
+  userDelete(userId)
+    .then(_.partial(onSuccess, res))
+    .catch(_.partial(onError, res, 'An error ocurred to delete an User'));
+}

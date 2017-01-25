@@ -2,11 +2,12 @@ export interface User {
   readonly id: number,
   name: string,
   email: string,
+  password: string
 }
 
-export function createUser({id, name, email}: any): User {
+export function createUser({id, name, email, password}: any): User {
   return {
-    id, name, email
+    id, name, email, password
   }
 }
 

@@ -28,6 +28,7 @@
   "author": "Raphael Lima <raphael.aolima8@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.0",
     "@types/bluebird": "^3.0.37",
     "@types/chai": "^3.4.34",
     "@types/chai-http": "0.0.29",
@@ -53,6 +54,7 @@
     "mocha": "^3.2.0",
     "mysql": "^2.12.0",
     "nodemon": "^1.11.0",
+    "testdouble": "^1.11.0",
     "ts-node": "^1.7.2",
     "typescript": "^2.0.6"
   },
@@ -60,6 +62,7 @@
     "@types/es6-promise": "0.0.32",
     "babel-cli": "^6.22.2",
     "babel-preset-es2015": "^6.22.0",
+    "bcryptjs": "^2.4.0",
     "body-parser": "^1.15.2",
     "debug": "^2.6.0",
     "express": "^4.14.0",
