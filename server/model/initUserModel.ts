@@ -1,4 +1,4 @@
-import * as bcrypt from 'bcryptjs';
+import * as bcrypt from 'bcrypt';
 import * as ORM from 'sequelize';
 import {Sequelize} from 'sequelize';
 
@@ -31,8 +31,8 @@ export function initUserModel(sequelize: Sequelize) {
       }
     }
   }, {
-    instanceMethods: {
-      validePassword: (encryptedPassword, password) => bcrypt.compareSync(password, encryptedPassword)
+    classMethods: {
+      validatePassword: (encryptedPassword, password) => bcrypt.compareSync(password, encryptedPassword)
     }
   });
 

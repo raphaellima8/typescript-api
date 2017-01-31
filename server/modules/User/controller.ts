@@ -8,15 +8,17 @@ import {createNewUser} from '../../queries/CreateUser';
 import {userUpdate} from '../../queries/UpdateUser';
 import {userDelete} from '../../queries/DeleteUser';
 import {dbErrorHandler} from '../../../config/dbErrorHandler';
+import {User} from './service';
+const srv = new User();
 
 export function getAll(req: Request, res: Response) {
-  getAllUsers()
+  srv.getAll()
     .then(_.partial(onSuccess, res))
-    .catch(_.partial(onError, res, 'Find all users Failed'));
+    .catch(_.partial(onError, res, 'Find all users failed'));
 }
 
 export function createUser(req: Request, res: Response) {
-  createNewUser(req.body)
+  srv.create(req.body)
     .then(_.partial(onSuccess, res))
     .catch(_.partial(dbErrorHandler, res))
     .catch(_.partial(onError, res, `Could not create user`));
@@ -24,7 +26,8 @@ export function createUser(req: Request, res: Response) {
 
 export function getById(req: Request, res: Response) {
   const userId = parseInt(req.params.id);
-  getUserById(userId)
+  console.log(userId);
+  srv.getById(userId)
     .then(_.partial(onSuccess, res))
     .catch(_.partial(onError, res, 'Not found'));
 }
@@ -32,14 +35,14 @@ export function getById(req: Request, res: Response) {
 export function updateUser(req: Request, res: Response){
   const userId = parseInt(req.params.id);
   const props = req.body;
-  userUpdate(userId, props)
+  srv.update(userId, props)
     .then(_.partial(onSuccess, res))
     .catch(_.partial(onError, res, 'Update User failed'));
 }
 
 export function deleteUser(req: Request, res: Response){
   const userId = req.params.id;
-  userDelete(userId)
+  srv.delete(userId)
     .then(_.partial(onSuccess, res))
     .catch(_.partial(onError, res, 'An error ocurred to delete an User'));
 }

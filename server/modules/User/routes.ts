@@ -1,13 +1,27 @@
 import {getAll, getById, createUser, updateUser, deleteUser} from './controller';
-import {Router} from 'express';
+import {Request, Response} from 'express';
 
-let router: Router;
-router = Router();
+export default class UserRoutes {
 
-router.route('/all').get(getAll);
-router.route('/:id').get(getById);
-router.route('/create').post(createUser);
-router.route('/:id/update').put(updateUser);
-router.route('/:id/destroy').delete(deleteUser);
+  constructor(){}
 
-export default router;
+  index(req:Request, res:Response) {
+    return getAll(req, res);
+  }
+
+  create(req:Request, res:Response) {
+    return createUser(req, res);
+  }
+
+  findOne(req:Request, res:Response) {
+    return getById(req, res);
+  }
+
+  update(req:Request, res:Response) {
+    return updateUser(req, res);
+  }
+
+  destroy(req:Request, res:Response){
+    return deleteUser(req, res);
+  }
+}
