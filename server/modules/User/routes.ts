@@ -1,27 +1,31 @@
-import {getAll, getById, createUser, updateUser, deleteUser} from './controller';
+import UserController from './controller';
 import {Request, Response} from 'express';
+let UserCtlr;
 
 export default class UserRoutes {
 
-  constructor(){}
+  constructor(){
+    UserCtlr = new UserController();
+  }
 
   index(req:Request, res:Response) {
-    return getAll(req, res);
+    console.log('oi')
+    return UserCtlr.getAll(req, res);
   }
 
   create(req:Request, res:Response) {
-    return createUser(req, res);
+    return UserCtlr.createUser(req, res);
   }
 
   findOne(req:Request, res:Response) {
-    return getById(req, res);
+    return UserCtlr.getById(req, res);
   }
 
   update(req:Request, res:Response) {
-    return updateUser(req, res);
+    return UserCtlr.updateUser(req, res);
   }
 
   destroy(req:Request, res:Response){
-    return deleteUser(req, res);
+    return UserCtlr.deleteUser(req, res);
   }
 }

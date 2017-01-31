@@ -2,7 +2,7 @@ import * as mocha from 'mocha';
 import * as chai from 'chai';
 import * as TD from 'testdouble';
 import chaiHttp = require('chai-http');
-import App from '../../../server/api/api';
+import App from '../../../api/api';
 
 export const app = App;
 

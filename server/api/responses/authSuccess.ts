@@ -1,6 +1,6 @@
 import {Request, Response} from 'express';
 import * as jwt from 'jwt-simple';
-const config = require('../../../config/config');
+const config = require('../../config/config');
 const bcrypt = require('bcrypt');
 
 export function authSuccess(res: Response, creadentials:any, data: any){

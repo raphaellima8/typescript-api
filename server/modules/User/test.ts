@@ -1,13 +1,8 @@
-import {app, req, expect, Chai} from '../../../config/tests/functional/helpers';
+import {app, req, expect, Chai} from '../../config/tests/functional/helpers';
 import * as jwt from 'jwt-simple';
-const config = require('../../../config/config');
-import {UserModel} from '../../model/model';
-import {UserDetail} from '../../shared/model/UserDetails';
-import {createUserById} from '../../shared/model/UserById';
+const config = require('../../config/config');
 import * as _ from 'lodash';
-
-let id = 1000;
-let token;
+let id;
 const userDefault = {
     id: 1,
     name: 'Test User',
