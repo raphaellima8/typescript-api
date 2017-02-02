@@ -1,7 +1,7 @@
 import {IUser, createUser, createUsers, createUserById, IUserDetail} from './interface';
-import {UserModel} from '../../model/model';
+//TODO: Mudar para import
+var models  = require('../../models');
 import * as Bluebird from 'bluebird';
-
 
 export class User implements IUser{
   public id: number;
@@ -12,25 +12,25 @@ export class User implements IUser{
   constructor(){}
 
   create(user: any) {
-    return UserModel.create(user);
+    return models.User.create(user);
   }
 
   getAll(): Bluebird<IUser[]> {
-    return UserModel.findAll({
+    return models.User.findAll({
       order: ['name']
     })
     .then(createUsers);
   }
 
   getById(id:number): Bluebird<IUserDetail> {
-    return UserModel.findOne({
+    return models.User.findOne({
       where: {id}
     })
     .then(createUserById);
   }
 
   update(id: number, user: any) {
-    return UserModel.update(
+    return models.User.update(
       user,
       {
         where: {id}
@@ -39,7 +39,7 @@ export class User implements IUser{
   }
 
   delete(id: number) {
-    return UserModel.destroy({
+    return models.User.destroy({
       where: {id}
     });
   }
