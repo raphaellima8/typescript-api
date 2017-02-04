@@ -6,8 +6,17 @@ RUN apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys B97
 RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main" > /etc/apt/sources.list.d/pgdg.list
 RUN apt-get update && apt-get install -y python-software-properties software-properties-common postgresql-9.3 postgresql-client-9.3 postgresql-contrib-9.3
 USER postgres
-RUN    /etc/init.d/postgresql start &&\
-    createdb api -O postgres
+RUN /etc/init.d/postgresql start &&\
+    createdb api -O postgres &&\
+    psql -c "ALTER USER postgres WITH PASSWORD 'pgroot'" &&\
+    psql -d api -c 'CREATE TABLE "Users" (
+      id serial NOT NULL,
+      "name" character varying (255),
+      "email" character varying (255),
+      "password" character varying(255),
+      "createdAt" timestamp with time zone NOT NULL,
+      "updatedAt" timestamp with time zone NOT NULL
+    );'
 RUN echo "host all  all    0.0.0.0/0  md5" >> /etc/postgresql/9.3/main/pg_hba.conf
 RUN echo "listen_addresses='*'" >> /etc/postgresql/9.3/main/postgresql.conf
 EXPOSE 5432
@@ -23,5 +32,4 @@ RUN npm install
 
 COPY . /usr/src/ts-api
 EXPOSE 4000
-
 CMD npm run watch

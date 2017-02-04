@@ -9,7 +9,6 @@ export default class UserRoutes {
   }
 
   index(req:Request, res:Response) {
-    console.log('oi')
     return UserCtlr.getAll(req, res);
   }
 

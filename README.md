@@ -7,6 +7,7 @@
 * gulp
 * PostgreSQL
 * Sequelize
+* Docker
 
 ## Getting Started
 Clone this repo:
@@ -28,6 +29,5 @@ Tests:
 ```
 npm run test
 ```
-
 
 License: MIT
