@@ -26,6 +26,6 @@ Object.keys(db).forEach(function (modelName) {
         db[modelName].associate(db);
     }
 });
-this.db.sequelize = sequelize;
-this.db.Sequelize = Sequelize;
+db.sequelize = sequelize;
+db.Sequelize = Sequelize;
 module.exports = db;

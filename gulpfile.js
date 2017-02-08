@@ -1,3 +1,4 @@
+/* jshint esversion:6 */
 const gulp = require('gulp');
 const gulpTypeScript = require('gulp-typescript');
 
