@@ -52,7 +52,7 @@ Run the commands below in the container terminal:
 ```
 su postgres
 /etc/init.d/postgresql start
-psql -c "ALTER USER postgres WITH PASSWORD 'pgroot'"
+psql -c "ALTER USER postgres WITH PASSWORD 'your_password'"
 psql -c "CREATE DATABASE api OWNER postgres"
 npm run watch
 ```
