@@ -11,7 +11,7 @@
     "node": "node dist/server/server.js",
     "lint": "eslint 'dist/**/*.js'",
     "lint:fix": "eslint 'dist/**/*.js' --fix",
-    "dist-start": "babel-node dist/server/server.js"
+    "dist-start": "babel-node dist/server.js"
   },
   "repository": {
     "type": "git",

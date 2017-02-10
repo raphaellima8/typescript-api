@@ -1,6 +1,5 @@
 "use strict";
 var interface_1 = require('./interface');
-//TODO: Mudar para import
 var models = require('../../models');
 var User = (function () {
     function User() {

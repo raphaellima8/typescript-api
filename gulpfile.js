@@ -5,12 +5,11 @@ const gulpTypeScript = require('gulp-typescript');
 const tsProject = gulpTypeScript.createProject('tsconfig.json');
 
 gulp.task('scripts', () => {
-  const tsResult = tsProject.src()
-      .pipe(tsProject());
+  const tsResult = tsProject.src().pipe(tsProject());
   return tsResult.js.pipe(gulp.dest('dist'));
 });
 
-gulp.task('watch', ['scripts'], () => {
+gulp.task('watch', ['scripts', 'cp'], () => {
   gulp.watch('**/*.ts', ['scripts']);
 });
 

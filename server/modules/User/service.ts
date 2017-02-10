@@ -1,5 +1,4 @@
 import {IUser, createUser, createUsers, createUserById, IUserDetail} from './interface';
-//TODO: Mudar para import
 var models  = require('../../models');
 import * as Bluebird from 'bluebird';
 

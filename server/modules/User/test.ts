@@ -1,7 +1,7 @@
 import {app, req, expect, Chai} from '../../config/tests/functional/helpers';
 import * as jwt from 'jwt-simple';
-const config = require('../../config/config');
 import * as _ from 'lodash';
+const config = require('../../config/config');
 let id;
 const userDefault = {
     id: 1,
@@ -36,14 +36,13 @@ describe('GET /api/users/all', () => {
             .request(app)
             .get('/api/users/all')
             .then(res => {
-              // expect(res).to.be.json;
               expect(res.status).to.equal(200);
               expect(res.body.payload[0]).to.have.all.keys([
                 'id',
                 'name',
                 'email',
                 'password'
-              ])
+              ]);
             });
   });
 });
