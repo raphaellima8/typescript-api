@@ -1,5 +1,4 @@
 "use strict";
-
 var bcrypt = require('bcrypt');
 function default_1(sequelize, DataTypes) {
     var User = sequelize.define('User', {
@@ -45,3 +44,4 @@ function default_1(sequelize, DataTypes) {
 }
 exports.__esModule = true;
 exports["default"] = default_1;
+;

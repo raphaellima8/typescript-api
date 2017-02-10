@@ -14,25 +14,20 @@ export default function authConfig () {
 
   const strategy = new Strategy(opts, (jwtPayload, done) => {
     UserService.getById(jwtPayload.id)
-      .then(() => {
-        success(jwtPayload, done)
+      .then((data) => {
+        if(data) {
+          return done(null, {
+            id: data.id,
+            email: data.email
+          });
+        }
+        return done(null, false);
       })
-      .catch(_.partial(error, done, error));
-  })
+      .catch(_.partial((error) => {
+        return done(error, null);
+      }, done));
+  });
 
-  function success(data:any, done): Function {
-      if(data) {
-        return done(null, {
-          id: data.id,
-          email: data.email
-        });
-      }
-      return done(null, false);
-  };
-
-  function error(done): Function {
-    return done(error, null);
-  };
   passport.use(strategy);
 
   return {

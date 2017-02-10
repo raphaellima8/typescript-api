@@ -4,11 +4,9 @@
   "description": "\"TypeScript API - Node + ES6 + Sequelize + PostgreSQL\"",
   "main": "server.ts",
   "scripts": {
-    "test": "mocha --compilers ts:ts-node/register server/**/test.ts",
+    "test": "sh script/test.sh",
     "dist-test": "mocha --require dist/config/tests/functional/helpers.js --reporter spec --compilers js:babel-core/register dist/**/test.js",
-    "start": "./node_modules/.bin/ts-node ./server/server.ts",
-    "watch": "./node_modules/.bin/nodemon -w . --ext \".ts\" --exec \"npm run start\"",
-    "node": "node dist/server/server.js",
+    "watch": "sh script/server.sh",
     "lint": "eslint 'dist/**/*.js'",
     "lint:fix": "eslint 'dist/**/*.js' --fix",
     "dist-start": "babel-node dist/server/server.js"

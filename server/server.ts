@@ -3,9 +3,10 @@ import * as debug from 'debug';
 import Api from './api/api';
 import {errorHandlerApi} from './api/errorHandlerApi';
 var models = require('./models');
+const config = require('./config/env/config')();
 debug('ts-api:server');
 
-const port = normalizePort(process.env.PORT || 3000);
+const port = normalizePort(config.server_port);
 
 Api.set('port', port);
 const server = http.createServer(Api);

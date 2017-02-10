@@ -12,15 +12,8 @@ RUN echo "listen_addresses='*'" >> /etc/postgresql/9.3/main/postgresql.conf
 EXPOSE 5432
 VOLUME  ["/etc/postgresql", "/var/log/postgresql", "/var/lib/postgresql"]
 CMD ["/usr/lib/postgresql/9.3/bin/postgres", "-D", "/var/lib/postgresql/9.3/main", "-c", "config_file=/etc/postgresql/9.3/main/postgresql.conf"]
-USER root
-RUN /etc/init.d/postgresql stop
-RUN /etc/init.d/postgresql start
-RUN psql -h localhost -U postgres
-RUN psql -c "ALTER USER postgres WITH PASSWORD 'pgroot'";
-RUN psql -c "CREATE DATABASE api OWNER postgres"
-RUN psql -c 'CREATE TABLE "Users" (id serial NOT NULL, "name" character varying (255), "email" character varying (255), "password" character varying(255), "createdAt" timestamp with time zone NOT NULL, "updatedAt" timestamp with time zone NOT NULL);'
 
-# USER root
+USER root
 RUN mkdir -p /usr/src/ts-api
 WORKDIR /usr/src/ts-api
 

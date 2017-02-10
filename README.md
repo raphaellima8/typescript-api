@@ -30,4 +30,26 @@ Tests:
 npm run test
 ```
 
+## If Docker
+Run:
+```
+[sudo] docker build -t <image_name> .
+```
+```
+[sudo] docker run -d -p 9000:3000 --name <label> <image_name>
+```
+Connect to the container:
+```
+[sudo] docker exec -it <id_container> /bin/bash
+```
+Run the commands below in the container terminal:
+```
+su postgres
+/etc/init.d/postgresql start
+psql -c "ALTER USER postgres WITH PASSWORD 'pgroot'"
+psql -c "CREATE DATABASE api OWNER postgres"
+npm run watch
+```
+
+
 License: MIT

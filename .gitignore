@@ -12,3 +12,4 @@ perf-logs
 v8.log
 *.js.map
 !gulpfile.js
+script

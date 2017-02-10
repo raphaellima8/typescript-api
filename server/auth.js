@@ -12,25 +12,19 @@ function authConfig() {
     opts.jwtFromRequest = ExtractJwt.fromAuthHeader();
     var strategy = new Strategy(opts, function (jwtPayload, done) {
         UserService.getById(jwtPayload.id)
-            .then(function () {
-            success(jwtPayload, done);
+            .then(function (data) {
+            if (data) {
+                return done(null, {
+                    id: data.id,
+                    email: data.email
+                });
+            }
+            return done(null, false);
         })
-            .catch(_.partial(error, done, error));
+            .catch(_.partial(function (error) {
+            return done(error, null);
+        }, done));
     });
-    function success(data, done) {
-        if (data) {
-            return done(null, {
-                id: data.id,
-                email: data.email
-            });
-        }
-        return done(null, false);
-    }
-    ;
-    function error(done) {
-        return done(error, null);
-    }
-    ;
     passport.use(strategy);
     return {
         initialize: function () {
