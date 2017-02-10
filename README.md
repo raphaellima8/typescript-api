@@ -20,6 +20,12 @@ Install dependencies:
  npm i
 ```
 
+Set the values to environment variables in the below files:
+```
+scripts/server.sh
+scripts/test.sh
+```
+
 Start server:
 ```
 npm run watch

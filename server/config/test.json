@@ -1,9 +1,0 @@
-{
-  "postgres": {
-    "username": "postgres",
-    "password": "pgroot",
-    "server": "localhost",
-    "port": 5432,
-    "database": "api_test"
-  }
-}

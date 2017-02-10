@@ -3,7 +3,7 @@ import * as _ from 'lodash';
 import {User} from './modules/User/service';
 const Strategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
-const config = require('./config/config.json')['development'];
+const config = require('./config/env/config')();
 
 export default function authConfig () {
   const UserService = new User();

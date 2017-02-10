@@ -1,6 +1,6 @@
 "use strict";
 var jwt = require('jwt-simple');
-var config = require('../../config/config');
+var config = require('../../config/env/config')();
 var bcrypt = require('bcrypt');
 function authSuccess(res, creadentials, data) {
     if (bcrypt.compareSync(creadentials.password, data.password)) {

@@ -9,4 +9,5 @@ module.exports = {
   server_port: process.env.SERVER_PORT,
   pg_port: process.env.PG_PORT,
   db_url: process.env.DB_URL,
+  secret: process.env.SECRET,
 };

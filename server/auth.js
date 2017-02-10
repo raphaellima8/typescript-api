@@ -4,7 +4,7 @@ var _ = require('lodash');
 var service_1 = require('./modules/User/service');
 var Strategy = require('passport-jwt').Strategy;
 var ExtractJwt = require('passport-jwt').ExtractJwt;
-var config = require('./config/config.json')['development'];
+var config = require('./config/env/config')();
 function authConfig() {
     var UserService = new service_1.User();
     var opts = {};
