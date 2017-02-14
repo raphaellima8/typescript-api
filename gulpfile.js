@@ -9,7 +9,7 @@ gulp.task('scripts', () => {
   return tsResult.js.pipe(gulp.dest('dist'));
 });
 
-gulp.task('watch', ['scripts', 'cp'], () => {
+gulp.task('watch', ['scripts'], () => {
   gulp.watch('**/*.ts', ['scripts']);
 });
 

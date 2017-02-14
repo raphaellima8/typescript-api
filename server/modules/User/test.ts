@@ -1,7 +1,7 @@
 import {app, req, expect, Chai} from '../../config/tests/functional/helpers';
 import * as jwt from 'jwt-simple';
 import * as _ from 'lodash';
-const config = require('../../config/config');
+const config = require('../../config/env/config');
 let id;
 const userDefault = {
     id: 1,
