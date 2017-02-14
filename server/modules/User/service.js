@@ -19,6 +19,12 @@ var User = (function () {
         })
             .then(interface_1.createUserById);
     };
+    User.prototype.getByEmail = function (email) {
+        return models.User.findOne({
+            where: { email: email }
+        })
+            .then(interface_1.createUserByEmail);
+    };
     User.prototype.update = function (id, user) {
         return models.User.update(user, {
             where: { id: id }

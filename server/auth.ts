@@ -1,41 +1,48 @@
 import * as passport from 'passport';
-import * as _ from 'lodash';
 import {User} from './modules/User/service';
-const Strategy = require('passport-jwt').Strategy;
-const ExtractJwt = require('passport-jwt').ExtractJwt;
+import { Strategy, ExtractJwt } from 'passport-jwt';
 const config = require('./config/env/config')();
 
-export default function authConfig () {
-  const UserService = new User();
+class AuthConfig {
+  private UserService: User;
+  private opts: any = {};
+  private strategy: Strategy;
 
-  const opts: any = {};
-  opts.secretOrKey = config.secret;
-  opts.jwtFromRequest = ExtractJwt.fromAuthHeader();
-
-  const strategy = new Strategy(opts, (jwtPayload, done) => {
-    UserService.getById(jwtPayload.id)
-      .then((data) => {
-        if(data) {
-          return done(null, {
-            id: data.id,
-            email: data.email
-          });
-        }
-        return done(null, false);
-      })
-      .catch(_.partial((error) => {
-        return done(error, null);
-      }, done));
-  });
-
-  passport.use(strategy);
-
-  return {
-    initialize: () => {
-      return passport.initialize()
-    },
-    authenticate: () => {
-      return passport.authenticate('jwt', {session: false})
-    }
+  constructor(){
+    this.UserService = new User();
+    this.opts.secretOrKey = config.secret;
+    this.opts.jwtFromRequest = ExtractJwt.fromAuthHeader();
   }
-};
+
+  createStrategy() {
+    this.strategy = new Strategy(this.opts, this.searchUser);
+    this.useStrategy(this.strategy);
+  }
+
+  useStrategy(strategy: any){
+    passport.use(strategy);
+  }
+
+  searchUser(jwtPayload, done) {
+    this.UserService.getById(jwtPayload.id).then(user => {
+      if(user) {
+        return done(null, {
+          id: user.id,
+          email: user.email
+        });
+      }
+      return done(null, false);
+    })
+    .catch(error => done(error, null));
+  }
+
+  initialize() {
+    return passport.initialize();
+  }
+
+  authenticate() {
+    return passport.authenticate('jwt', { session : false });
+  }
+}
+
+export default AuthConfig;

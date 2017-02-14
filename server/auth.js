@@ -1,40 +1,43 @@
 "use strict";
 var passport = require('passport');
-var _ = require('lodash');
 var service_1 = require('./modules/User/service');
-var Strategy = require('passport-jwt').Strategy;
-var ExtractJwt = require('passport-jwt').ExtractJwt;
+var passport_jwt_1 = require('passport-jwt');
 var config = require('./config/env/config')();
-function authConfig() {
-    var UserService = new service_1.User();
-    var opts = {};
-    opts.secretOrKey = config.secret;
-    opts.jwtFromRequest = ExtractJwt.fromAuthHeader();
-    var strategy = new Strategy(opts, function (jwtPayload, done) {
-        UserService.getById(jwtPayload.id)
-            .then(function (data) {
-            if (data) {
+var AuthConfig = (function () {
+    function AuthConfig() {
+        this.opts = {};
+        this.UserService = new service_1.User();
+        this.opts.secretOrKey = config.secret;
+        this.opts.jwtFromRequest = passport_jwt_1.ExtractJwt.fromAuthHeader();
+    }
+    AuthConfig.prototype.createStrategy = function () {
+        this.strategy = new passport_jwt_1.Strategy(this.opts, this.searchUser);
+        this.useStrategy(this.strategy);
+    };
+    AuthConfig.prototype.useStrategy = function (strategy) {
+        passport.use(strategy);
+    };
+    AuthConfig.prototype.searchUser = function (jwtPayload, done) {
+        this.UserService.getById(jwtPayload.id).then(function (user) {
+            if (user) {
                 return done(null, {
-                    id: data.id,
-                    email: data.email
+                    id: user.id,
+                    email: user.email
                 });
             }
             return done(null, false);
         })
-            .catch(_.partial(function (error) {
-            return done(error, null);
-        }, done));
-    });
-    passport.use(strategy);
-    return {
-        initialize: function () {
-            return passport.initialize();
-        },
-        authenticate: function () {
-            return passport.authenticate('jwt', { session: false });
-        }
+            .catch(function (error) { return done(error, null); });
     };
-}
+    AuthConfig.prototype.initialize = function () {
+        return passport.initialize();
+    };
+    AuthConfig.prototype.authenticate = function () {
+        return passport.authenticate('jwt', { session: false }, function (req, res) {
+            res.send('ok');
+        });
+    };
+    return AuthConfig;
+}());
 exports.__esModule = true;
-exports["default"] = authConfig;
-;
+exports["default"] = AuthConfig;

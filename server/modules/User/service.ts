@@ -1,4 +1,4 @@
-import {IUser, createUser, createUsers, createUserById, IUserDetail} from './interface';
+import {IUser, createUser, createUsers, createUserById, createUserByEmail, IUserDetail} from './interface';
 var models  = require('../../models');
 import * as Bluebird from 'bluebird';
 
@@ -26,6 +26,13 @@ export class User implements IUser{
       where: {id}
     })
     .then(createUserById);
+  }
+
+  getByEmail(email:string): Bluebird<IUserDetail> {
+    return models.User.findOne({
+      where: {email}
+    })
+    .then(createUserByEmail)
   }
 
   update(id: number, user: any) {

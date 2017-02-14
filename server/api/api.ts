@@ -1,7 +1,7 @@
 import * as express from 'express';
 import * as path from 'path';
 import * as logger from 'morgan';
-import authConfig from '../auth';
+import AuthConfig from '../auth';
 import Routes from './routes/routes';
 
 const bodyParser = require('body-parser');
@@ -13,20 +13,20 @@ class Api {
   
   constructor(){
     this.express = express();
+    this.auth = new AuthConfig();
     this.middleware();
-    this.router(this.express);
+    this.router(this.express, this.auth);
   }
 
   middleware(): void {
     this.express.use(logger('dev'));
     this.express.use(bodyParser.urlencoded({extended: true}));
     this.express.use(bodyParser.json());
-    this.auth = authConfig();
     this.express.use(this.auth.initialize());
   }
 
-  private router(app: express.Application): void {
-    new Routes(app);
+  private router(app: express.Application, auth: any): void {
+    new Routes(app, auth);
   }
 }
 

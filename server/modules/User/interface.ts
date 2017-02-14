@@ -27,3 +27,9 @@ export function createUserById({id, name, email, password}:any): IUserDetail{
     id, name, email, password
   }
 }
+
+export function createUserByEmail({id, name, email, password}:any): IUserDetail {
+  return {
+    id, name, email, password
+  }
+}
