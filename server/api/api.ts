@@ -10,10 +10,10 @@ class Api {
 
   public express: express.Application;
   public auth;
-  
+
   constructor(){
     this.express = express();
-    this.auth = new AuthConfig();
+    this.auth = AuthConfig();
     this.middleware();
     this.router(this.express, this.auth);
   }

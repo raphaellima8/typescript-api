@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var Api = (function () {
     function Api() {
         this.express = express();
-        this.auth = new auth_1["default"]();
+        this.auth = auth_1["default"]();
         this.middleware();
         this.router(this.express, this.auth);
     }

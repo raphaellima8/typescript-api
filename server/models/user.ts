@@ -33,13 +33,13 @@ export default function(sequelize, DataTypes) {
     }
   });
 
-  User.beforeCreate((user) => {
-      return hashPass(user);
-    })
+  User.beforeCreate( user => hashPass(user));
 
-    function hashPass(user) {
-      const salt = bcrypt.genSaltSync(10);
-      user.set('password', bcrypt.hashSync(user.password, salt));
-    }
+  User.beforeUpdate(user => hashPass(user));
+
+  function hashPass(user) {
+    const salt = bcrypt.genSaltSync(10);
+    user.set('password', bcrypt.hashSync(user.password, salt));
+  }
   return User;
 };

@@ -33,9 +33,8 @@ function default_1(sequelize, DataTypes) {
             validatePassword: function (encryptedPassword, password) { return bcrypt.compareSync(password, encryptedPassword); }
         }
     });
-    User.beforeCreate(function (user) {
-        return hashPass(user);
-    });
+    User.beforeCreate(function (user) { return hashPass(user); });
+    User.beforeUpdate(function (user) { return hashPass(user); });
     function hashPass(user) {
         var salt = bcrypt.genSaltSync(10);
         user.set('password', bcrypt.hashSync(user.password, salt));
