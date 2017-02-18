@@ -17,6 +17,10 @@
     "type": "git",
     "url": "https://github.com/raphaellima8/typescript-api.git"
   },
+  "engines": {
+    "node": "5.12.0",
+    "npm": "3.10.9"
+  },
   "keywords": [
     "TypeScript",
     "API",
