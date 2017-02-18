@@ -6,8 +6,7 @@
   "scripts": {
     "test": "sh script/test.sh",
     "dist-test": "mocha --require dist/config/tests/functional/helpers.js --reporter spec --compilers js:babel-core/register dist/**/test.js",
-    "start": "./node_modules/.bin/ts-node ./server/server.ts",
-    "watch": "sh script/server.sh",
+    "start": "sh script/server.sh",
     "node": "node dist/server/server.js",
     "lint": "eslint 'dist/**/*.js'",
     "lint:fix": "eslint 'dist/**/*.js' --fix",
