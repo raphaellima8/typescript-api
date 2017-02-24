@@ -1,8 +1,10 @@
 "use strict";
-var chai = require('chai');
-var chaiHttp = require('chai-http');
+var Chai = require('chai');
+var supertest = require('supertest');
 var api_1 = require('../../../api/api');
-exports.app = api_1["default"];
-exports.Chai = chai;
-exports.req = chai.use(chaiHttp);
-exports.expect = chai.expect;
+var app = api_1["default"];
+exports.app = app;
+var request = supertest;
+exports.request = request;
+var expect = Chai.expect;
+exports.expect = expect;

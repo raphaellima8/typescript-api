@@ -1,15 +1,10 @@
 import * as mocha from 'mocha';
-import * as chai from 'chai';
-import * as TD from 'testdouble';
-import chaiHttp = require('chai-http');
+import * as Chai from 'chai';
+const supertest = require('supertest');
 import App from '../../../api/api';
 
-export const app = App;
+const app = App;
+const request = supertest;
+const expect = Chai.expect;
 
-export const Chai = chai;
-
-export const req = chai.use(chaiHttp);
-
-export const expect = chai.expect;
-
-export const td = TD;
+export {app, expect, request};

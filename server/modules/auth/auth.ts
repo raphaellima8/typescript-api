@@ -5,16 +5,16 @@ import {authSuccess, authFail} from '../../api/responses/authSuccess';
 const UserService = new User();
 
 class TokenRoutes {
-  
+
     auth(req: Request, res: Response){
         if (req.body.email && req.body.password) {
-            const creadentials = {
+            const credentials = {
                     email: req.body.email,
                     password: req.body.password
                 };
 
-            UserService.getByEmail(creadentials.email)
-                .then(_.partial(authSuccess, res, creadentials))
+            UserService.getByEmail(credentials.email)
+                .then(_.partial(authSuccess, res, credentials))
                 .catch(_.partial(authFail, req, res));
         }
     }
