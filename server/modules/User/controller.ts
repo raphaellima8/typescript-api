@@ -25,7 +25,6 @@ export default class UserController {
 
   getById(req: Request, res: Response) {
     const userId = parseInt(req.params.id);
-    console.log(userId);
     UserService.getById(userId)
       .then(_.partial(onSuccess, res))
       .catch(_.partial(onError, res, 'Not found'));

@@ -6,17 +6,17 @@ const UserService = new User();
 
 class TokenRoutes {
 
-    auth(req: Request, res: Response){
-        if (req.body.email && req.body.password) {
-            const credentials = {
-                    email: req.body.email,
-                    password: req.body.password
-                };
-
-            UserService.getByEmail(credentials.email)
-                .then(_.partial(authSuccess, res, credentials))
-                .catch(_.partial(authFail, req, res));
-        }
+    auth(req: Request, res: Response) {
+      const credentials = {
+        email: req.body.email,
+        password: req.body.password
+      }
+      if (credentials.hasOwnProperty('email') && credentials.hasOwnProperty('password')) {
+        UserService
+          .getByEmail(credentials.email)
+          .then(_.partial(authSuccess, res, credentials))
+          .catch(_.partial(authFail, req, res));
+      }
     }
 }
 

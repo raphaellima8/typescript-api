@@ -3,6 +3,7 @@ var models  = require('../../models');
 import * as Bluebird from 'bluebird';
 
 export class User implements IUser{
+
   public id: number;
   public name: string;
   public email: string;

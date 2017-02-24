@@ -1,5 +1,6 @@
 import {Response} from 'express';
+import * as HTTPStatus from 'http-status';
 
 export function onSuccess(res:Response, data:any) {
-  res.status(200).json({payload:data});
+  res.status(HTTPStatus.OK).json({payload:data});
 }

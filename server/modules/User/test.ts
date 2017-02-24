@@ -1,6 +1,7 @@
 import { app, request, expect } from '../../config/tests/functional/helpers';
 import * as jwt from 'jwt-simple';
 import * as _ from 'lodash';
+import * as HTTPStatus from 'http-status';
 
 describe('## User Tests', () => {
 
@@ -47,7 +48,7 @@ describe('## User Tests', () => {
         .set('Content-Type', 'application/json')
         .set('Authorization', `JWT ${token}`)
         .end((error, res) => {
-          expect(res.status).to.equal(200);
+          expect(res.status).to.equal(HTTPStatus.OK);
           done(error);
         });
     });
@@ -63,7 +64,7 @@ describe('## User Tests', () => {
         .post('/token')
         .send(credentials)
         .end((error, res) => {
-          expect(res.status).to.equal(200);
+          expect(res.status).to.equal(HTTPStatus.OK);
           expect(res.body.token).to.equal(`${token}`);
           done(error);
         });
@@ -77,7 +78,7 @@ describe('## User Tests', () => {
         .post('/token')
         .send(credentials)
         .end((error, res) => {
-          expect(res.status).to.equal(401);
+          expect(res.status).to.equal(HTTPStatus.UNAUTHORIZED);
           expect(res.body).to.empty;
           done(error);
         });
@@ -111,7 +112,7 @@ describe('## User Tests', () => {
         .get(`/api/users/${userDefault.id}`)
         .set('Authorization', `JWT ${token}`)
         .end((error, res) => {
-          expect(res.status).to.equal(200);
+          expect(res.status).to.equal(HTTPStatus.OK);
           expect(res.body.payload.id).to.equal(userDefault.id);
           expect(res.body.payload).to.have.all.keys([
             'id',
@@ -136,7 +137,7 @@ describe('## User Tests', () => {
         .set('Authorization', `JWT ${token}`)
         .send(updatedUser)
         .end((error, res) => {
-          expect(res.status).to.equal(200);
+          expect(res.status).to.equal(HTTPStatus.OK);
           expect(res.body.payload).to.eql([1]);
           done(error);
         });
@@ -149,7 +150,7 @@ describe('## User Tests', () => {
         .del(`/api/users/${userDefault.id}/destroy`)
         .set('Authorization', `JWT ${token}`)
         .end((error, res) => {
-          expect(res.status).to.equal(200);
+          expect(res.status).to.equal(HTTPStatus.OK);
           done(error);
         });
     });

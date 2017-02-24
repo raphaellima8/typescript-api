@@ -21,7 +21,6 @@ var UserController = (function () {
     };
     UserController.prototype.getById = function (req, res) {
         var userId = parseInt(req.params.id);
-        console.log(userId);
         UserService.getById(userId)
             .then(_.partial(successHandler_1.onSuccess, res))
             .catch(_.partial(errorHandler_1.onError, res, 'Not found'));

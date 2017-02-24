@@ -7,12 +7,13 @@ var TokenRoutes = (function () {
     function TokenRoutes() {
     }
     TokenRoutes.prototype.auth = function (req, res) {
-        if (req.body.email && req.body.password) {
-            var credentials = {
-                email: req.body.email,
-                password: req.body.password
-            };
-            UserService.getByEmail(credentials.email)
+        var credentials = {
+            email: req.body.email,
+            password: req.body.password
+        };
+        if (credentials.hasOwnProperty('email') && credentials.hasOwnProperty('password')) {
+            UserService
+                .getByEmail(credentials.email)
                 .then(_.partial(authSuccess_1.authSuccess, res, credentials))
                 .catch(_.partial(authSuccess_1.authFail, req, res));
         }

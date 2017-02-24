@@ -33,9 +33,9 @@ export default function(sequelize, DataTypes) {
     }
   });
 
-  User.beforeCreate( user => hashPass(user));
+  User.beforeCreate( user => hashPass(user) );
 
-  User.beforeUpdate(user => hashPass(user));
+  User.beforeUpdate( user => hashPass(user) );
 
   function hashPass(user) {
     const salt = bcrypt.genSaltSync(10);
