@@ -4,7 +4,7 @@ import * as _ from 'lodash';
 import * as HTTPStatus from 'http-status';
 
 describe('## User Tests', () => {
-
+  'use strict';
   const config = require('../../config/env/config')();
   const model  = require('../../models');
 

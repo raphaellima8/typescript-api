@@ -1,3 +1,4 @@
+#!/bin/bash
 export NODE_ENV=test
 export DB_NAME=api_test
 export DIALECT=postgres

@@ -1,3 +1,4 @@
+'use strict';
 import * as mocha from 'mocha';
 import * as Chai from 'chai';
 const supertest = require('supertest');
