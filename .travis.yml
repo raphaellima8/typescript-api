@@ -1,0 +1,21 @@
+language: node_js
+notifications:
+  email: raphael.aolima8@gmail.com
+nod_js:
+- 5.12
+services:
+- postgresql
+env:
+  global:
+  - NODE_ENV: test
+addons:
+  postgresql: "9.3"
+before_install:
+- sudo /etc/init.d/postgresql stop
+- sudo /etc/init.d/postgresql start 9.3
+- psql -c "ALTER USER postgres WITH PASSWORD 'pgroot'"
+- psql -c 'create database api_test;'
+before_script:
+- npm install
+script:
+- sh scripts/test.sh
