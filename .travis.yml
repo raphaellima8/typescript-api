@@ -19,4 +19,4 @@ before_install:
 - npm install
 - tsc server/**/*.ts
 script:
-- ./scripts/test.sh
+- sh scripts/test.sh
