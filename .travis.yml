@@ -18,5 +18,6 @@ before_install:
 - npm i -g typescript
 - npm install
 - tsc server/**/*.ts
+- tsc server/**/**/**/*.ts
 script:
 - sh scripts/test.sh
