@@ -1,12 +1,11 @@
-'use strict';
-  let fs = require('fs');
-  let path = require('path');
-  let Sequelize = require('sequelize');
-  let basename = path.basename(module.filename);
-  const config = require('../config/env/config')();
-  let env = config.env || 'development';
-  let db = {};
-  let sequelize;
+  var fs = require('fs');
+  var path = require('path');
+  var Sequelize = require('sequelize');
+  var basename = path.basename(module.filename);
+  var config = require('../config/env/config')();
+  var env = config.env || 'development';
+  var db = {};
+  var sequelize;
 
   if (config.db_url) {
     sequelize = new Sequelize(config.db_url);
@@ -15,10 +14,10 @@
   }
 fs
       .readdirSync(__dirname)
-      .filter((file) => {
+      .filter(function (file) {
         return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
       })
-      .forEach((file) => {
+      .forEach(function (file) {
         var model = sequelize['import'](path.join(__dirname, file));
         db[model.name] = model;
       });
