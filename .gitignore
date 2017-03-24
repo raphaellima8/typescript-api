@@ -12,4 +12,7 @@ perf-logs
 v8.log
 *.js.map
 !gulpfile.js
-script
+/.nyc_output/
+coverage
+/server/config/env/development.env.js
+/server/config/env/test.env.js

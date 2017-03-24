@@ -7,7 +7,7 @@
     "test": "NODE_ENV=test mocha --opts server/config/tests/functional/mocha.opts server/**/test.ts",
     "dist-test": "mocha --require dist/config/tests/functional/helpers.js --reporter spec --compilers js:babel-core/register dist/**/test.js",
     "start": "./node_modules/.bin/ts-node ./server/server.ts",
-    "watch": "sh script/server.sh",
+    "watch": "NODE_ENV=development ./node_modules/.bin/nodemon -w . --ext .ts --exec npm run start",
     "test:coverage": "nyc npm run test"
   },
   "repository": {

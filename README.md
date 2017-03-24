@@ -20,10 +20,10 @@ Install dependencies:
  npm i
 ```
 
-Set the values to environment variables in the below files:
+Set the values to environment's properties in the below files:
 ```
-scripts/server.sh
-scripts/test.sh
+/server/config/env/development.env.js
+/server/config/env/test.env.js
 ```
 
 Start server:
@@ -34,6 +34,11 @@ npm run watch
 Tests:
 ```
 npm run test
+```
+
+Coverage:
+```
+npm run test:coverage
 ```
 
 ## If Docker
@@ -48,7 +53,7 @@ Connect to the container:
 ```
 [sudo] docker exec -it <id_container> /bin/bash
 ```
-Run the commands below in the container terminal:
+Run the commands below in the container's terminal:
 ```
 su postgres
 /etc/init.d/postgresql start
