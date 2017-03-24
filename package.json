@@ -4,14 +4,11 @@
   "description": "\"TypeScript API - Node + ES6 + Sequelize + PostgreSQL\"",
   "main": "server.ts",
   "scripts": {
-    "test": "sh script/test.sh",
+    "test": "NODE_ENV=test mocha --opts server/config/tests/functional/mocha.opts server/**/test.ts",
     "dist-test": "mocha --require dist/config/tests/functional/helpers.js --reporter spec --compilers js:babel-core/register dist/**/test.js",
     "start": "./node_modules/.bin/ts-node ./server/server.ts",
     "watch": "sh script/server.sh",
-    "node": "node dist/server/server.js",
-    "lint": "eslint 'dist/**/*.js'",
-    "lint:fix": "eslint 'dist/**/*.js' --fix",
-    "dist-start": "babel-node dist/server.js"
+    "test:coverage": "nyc npm run test"
   },
   "repository": {
     "type": "git",
@@ -49,6 +46,7 @@
     "@types/passport-jwt": "^2.0.19",
     "@types/sequelize": "^4.0.39",
     "@types/supertest": "^2.0.0",
+    "babel-plugin-istanbul": "^4.1.1",
     "chai": "^3.5.0",
     "eslint": "^3.14.0",
     "eslint-config-airbnb": "^14.0.0",
@@ -60,9 +58,11 @@
     "gulp": "^3.9.1",
     "gulp-typescript": "^3.1.1",
     "http-server": "^0.9.0",
+    "istanbul": "^0.4.5",
     "mocha": "^3.2.0",
     "mysql": "^2.12.0",
     "nodemon": "^1.11.0",
+    "nyc": "^10.1.2",
     "supertest": "^3.0.0",
     "testdouble": "^1.11.0",
     "ts-node": "^1.7.2",
