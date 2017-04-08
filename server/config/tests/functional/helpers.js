@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var Chai = require('chai');
 var supertest = require('supertest');
 var api_1 = require('../../../api/api');

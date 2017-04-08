@@ -10,7 +10,6 @@ function AuthConfig() {
         jwtFromRequest: passport_jwt_1.ExtractJwt.fromAuthHeader()
     };
     passport.use(new passport_jwt_1.Strategy(opts, function (jwtPayload, done) {
-        console.log('payload: ', jwtPayload);
         UserService.getById(jwtPayload.id)
             .then(function (user) {
             if (user) {
