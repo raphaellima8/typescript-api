@@ -40,6 +40,7 @@ export default function(sequelize, DataTypes) {
   function hashPass(user) {
     const salt = bcrypt.genSaltSync(10);
     user.set('password', bcrypt.hashSync(user.password, salt));
+    console.log(`Password ${user.password}`)
   }
   return User;
 };

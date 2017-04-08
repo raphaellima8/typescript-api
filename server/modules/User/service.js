@@ -27,7 +27,10 @@ var User = (function () {
     };
     User.prototype.update = function (id, user) {
         return models.User.update(user, {
-            where: { id: id }
+            where: { id: id },
+            fields: ['name', 'email', 'password'],
+            hooks: true,
+            individualHooks: true
         });
     };
     User.prototype.delete = function (id) {
