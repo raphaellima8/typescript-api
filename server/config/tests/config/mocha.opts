@@ -1,4 +1,4 @@
---require server/config/tests/functional/helpers.js
+--require server/config/tests/config/helpers.js
 --compilers ts:ts-node/register
 --reporter spec
 --watch-extensions tsx,ts

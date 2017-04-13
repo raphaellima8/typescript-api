@@ -1,4 +1,4 @@
-import { app, request, expect } from '../../config/tests/functional/helpers';
+import { app, request, expect } from '../../config/tests/config/helpers';
 import * as jwt from 'jwt-simple';
 import * as _ from 'lodash';
 import * as HTTPStatus from 'http-status';

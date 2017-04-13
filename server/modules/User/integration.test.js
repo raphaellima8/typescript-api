@@ -1,5 +1,5 @@
 "use strict";
-var helpers_1 = require('../../config/tests/functional/helpers');
+var helpers_1 = require('../../config/tests/config/helpers');
 var jwt = require('jwt-simple');
 var HTTPStatus = require('http-status');
 describe('## User Tests', function () {
