@@ -31,9 +31,14 @@ Start server:
 npm run watch
 ```
 
-Tests:
+Integration Tests:
 ```
-npm run test
+npm run integration-test
+```
+
+Unit Tests:
+```
+npm run unit-test
 ```
 
 Coverage:
