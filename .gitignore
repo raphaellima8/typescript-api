@@ -17,3 +17,4 @@ coverage
 /server/config/env/development.env.js
 /server/config/env/test.env.js
 .vscode/
+build

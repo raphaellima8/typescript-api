@@ -17,7 +17,7 @@ models.sequelize.sync().then(() => {
   server.on('listening', listen);
 });
 
-Api.use(errorHandlerApi);
+Api.use(errorHandlerApi); 
 
 function listen():void {
   let address = server.address();
