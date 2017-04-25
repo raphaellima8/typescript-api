@@ -44,6 +44,7 @@ describe('## User Tests', function () {
                 .set('Authorization', "JWT " + token)
                 .end(function (error, res) {
                 helpers_1.expect(res.status).to.equal(HTTPStatus.OK);
+                helpers_1.expect(res.body.payload).to.be.an('array');
                 done(error);
             });
         });

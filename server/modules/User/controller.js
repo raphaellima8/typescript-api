@@ -4,7 +4,6 @@ var errorHandler_1 = require('../../api/responses/errorHandler');
 var successHandler_1 = require('../../api/responses/successHandler');
 var dbErrorHandler_1 = require('../../config/dbErrorHandler');
 var service_1 = require('./service');
-// const UserService = new User();
 var UserController = (function () {
     function UserController() {
         this.UserService = new service_1.User();

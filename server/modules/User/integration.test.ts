@@ -42,13 +42,14 @@ describe('## User Tests', () => {
   });
 
   describe('GET /api/users/all', () => {
-    it('Should return a json of Users', done => {
+    it('Should return a array of Users', done => {
       request(app)
         .get('/api/users/all')
         .set('Content-Type', 'application/json')
         .set('Authorization', `JWT ${token}`)
         .end((error, res) => {
           expect(res.status).to.equal(HTTPStatus.OK);
+          expect(res.body.payload).to.be.an('array');
           done(error);
         });
     });
