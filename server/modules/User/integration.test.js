@@ -37,7 +37,7 @@ describe('## User Tests', function () {
         });
     });
     describe('GET /api/users/all', function () {
-        it('Should return a json of Users', function (done) {
+        it('Should return a array of Users', function (done) {
             helpers_1.request(helpers_1.app)
                 .get('/api/users/all')
                 .set('Content-Type', 'application/json')
@@ -45,6 +45,8 @@ describe('## User Tests', function () {
                 .end(function (error, res) {
                 helpers_1.expect(res.status).to.equal(HTTPStatus.OK);
                 helpers_1.expect(res.body.payload).to.be.an('array');
+                helpers_1.expect(res.body.payload[0].name).to.be.equal('Raphael');
+                helpers_1.expect(res.body.payload[0].email).to.be.equal('raphael@email.com');
                 done(error);
             });
         });

@@ -50,6 +50,8 @@ describe('## User Tests', () => {
         .end((error, res) => {
           expect(res.status).to.equal(HTTPStatus.OK);
           expect(res.body.payload).to.be.an('array');
+          expect(res.body.payload[0].name).to.be.equal('Raphael')
+          expect(res.body.payload[0].email).to.be.equal('raphael@email.com')
           done(error);
         });
     });
