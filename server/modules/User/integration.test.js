@@ -133,6 +133,9 @@ describe('## User Tests', function () {
                 .end(function (error, res) {
                 helpers_1.expect(res.status).to.equal(HTTPStatus.OK);
                 helpers_1.expect(res.body.payload[0]).to.eql(1);
+                helpers_1.expect(res.body.payload[1][0].id).to.eql(userDefault.id);
+                helpers_1.expect(res.body.payload[1][0].name).to.eql(updatedUser.name);
+                helpers_1.expect(res.body.payload[1][0].email).to.eql(updatedUser.email);
                 done(error);
             });
         });
@@ -144,6 +147,7 @@ describe('## User Tests', function () {
                 .set('Authorization', "JWT " + token)
                 .end(function (error, res) {
                 helpers_1.expect(res.status).to.equal(HTTPStatus.OK);
+                helpers_1.expect(res.body.payload).to.eql(1);
                 done(error);
             });
         });
