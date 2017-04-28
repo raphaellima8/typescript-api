@@ -4,20 +4,21 @@ var service_1 = require('./service');
 describe('Testes unitários no Service User', function () {
     describe('Create Method', function () {
         it('Should create an User', function () {
-            var user = { create: helpers_1.testDouble.function() };
+            // const user = { create: testDouble.function() };
             var requestUser = {
                 id: 100,
                 name: 'Raphael Lima',
                 email: 'raphael@email.com',
                 password: '123'
             };
-            var expectedResponse = {
-                id: 100,
-                name: 'Raphael Lima',
-                email: 'raphael@email.com',
-                password: '123'
-            };
-            helpers_1.testDouble.when(user.create(requestUser)).thenResolve(expectedResponse);
+            // const expectedResponse = {
+            //     id: 100,
+            //     name: 'Raphael Lima',
+            //     email: 'raphael@email.com',
+            //     password: '123'
+            // };
+            //
+            // testDouble.when(user.create(requestUser)).thenResolve(expectedResponse);
             var userService = new service_1.User();
             return userService
                 .create(requestUser)
