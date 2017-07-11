@@ -11,13 +11,11 @@ env:
 addons:
   postgresql: "9.3"
 before_install:
-- sudo /etc/init.d/postgresql stop 9.3
-- sudo /etc/init.d/postgresql start 9.3
-- psql -c "ALTER USER postgres WITH PASSWORD 'pgroot'"
-- psql -c 'create database "api_test";'
-- npm i -g typescript
-- npm install
-- tsc server/**/*.ts
-- tsc server/**/**/**/*.ts
+  - sudo /etc/init.d/postgresql stop 9.3
+  - sudo /etc/init.d/postgresql start 9.3
+  - psql -c "ALTER USER postgres WITH PASSWORD 'pgroot'"
+  - psql -c 'create database "api_test";'
+  - npm i -g typescript
+  - npm install
 script:
-- sh scripts/test.sh
+- npm run integration-test
