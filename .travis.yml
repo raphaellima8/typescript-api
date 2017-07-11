@@ -15,6 +15,7 @@ before_install:
   - sudo /etc/init.d/postgresql start 9.3
   - psql -c "ALTER USER postgres WITH PASSWORD 'pgroot'"
   - psql -c 'create database "api_test";'
+  - psql -c 'CREATE TABLE "Users" (id serial NOT NULL, name character varying(255) NOT NULL, email character varying(255) NOT NULL, password character varying(255) NOT NULL, "createdAt" timestamp with time zone NOT NULL, "updatedAt" timestamp with time zone NOT NULL, CONSTRAINT "Users_pkey" PRIMARY KEY (id));'
   - npm i -g typescript
   - npm install
 script:
