@@ -2,9 +2,9 @@
 var helpers_1 = require("../../config/tests/config/helpers");
 var jwt = require("jwt-simple");
 var HTTPStatus = require("http-status");
-var models = require('../../models');
+var model = require('../../models');
 if (process.env.TRAVIS == 'true') {
-    models.sequelize.sync().then(function () {
+    model.sequelize.sync().then(function () {
         test();
     });
 }
@@ -13,7 +13,6 @@ function test() {
     describe('## User Tests', function () {
         'use strict';
         var config = require('../../config/env/config')();
-        var model = require('../../models');
         var id;
         var token;
         var userDefault = {

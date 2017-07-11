@@ -2,19 +2,20 @@ import { app, request, expect } from '../../config/tests/config/helpers';
 import * as jwt from 'jwt-simple';
 import * as _ from 'lodash';
 import * as HTTPStatus from 'http-status';
-var models = require('../../models');
+var model = require('../../models');
 
 if(process.env.TRAVIS == 'true') {
-    models.sequelize.sync().then(() => {
+    model.sequelize.sync().then(() => {
       test();
   });
 }
+
 test();
 function test() {
   describe('## User Tests', () => {
     'use strict';
     const config = require('../../config/env/config')();
-    const model  = require('../../models');
+    // const model  = require('../../models');
 
     let id;
     let token;
