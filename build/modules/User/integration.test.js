@@ -5,10 +5,13 @@ var HTTPStatus = require("http-status");
 var model = require('../../models');
 if (process.env.TRAVIS == 'true') {
     model.sequelize.sync().then(function () {
-        test();
+        console.log('Testing...');
     });
+    test();
 }
-test();
+else {
+    test();
+}
 function test() {
     describe('## User Tests', function () {
         'use strict';

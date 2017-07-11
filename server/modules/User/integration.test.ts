@@ -5,12 +5,14 @@ import * as HTTPStatus from 'http-status';
 var model = require('../../models');
 
 if(process.env.TRAVIS == 'true') {
-    model.sequelize.sync().then(() => {
-      test();
+  model.sequelize.sync().then(() => {
+    console.log('Testing...')
   });
+  test();
+} else {
+  test();
 }
 
-test();
 function test() {
   describe('## User Tests', () => {
     'use strict';
