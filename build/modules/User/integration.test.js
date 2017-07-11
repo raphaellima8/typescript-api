@@ -3,9 +3,9 @@ var helpers_1 = require("../../config/tests/config/helpers");
 var jwt = require("jwt-simple");
 var HTTPStatus = require("http-status");
 var model = require('../../models');
-model.sequelize.sync().then(function () { });
 describe('## User Tests', function () {
     'use strict';
+    model.sequelize.sync().then(function () { });
     var config = require('../../config/env/config')();
     var id;
     var token;
