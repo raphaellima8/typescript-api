@@ -1,7 +1,7 @@
 language: node_js
 notifications:
   email: raphael.aolima8@gmail.com
-nod_js:
+node_js:
 - 5.12
 services:
 - postgresql
