@@ -6,7 +6,7 @@
   "scripts": {
     "integration-test": "NODE_ENV=test mocha --opts server/config/tests/config/mocha.opts server/**/integration.test.ts",
     "unit-test": "NODE_ENV=test mocha --opts server/config/tests/config/mocha.opts server/**/unit.test.ts",
-    "dist-test": "TRAVIS=true NODE_ENV=test mocha --require build/config/tests/config/helpers.js --reporter spec --compilers js:babel-core/register build/**/**/integration.*.js",
+    "dist-test": "NODE_ENV=test mocha --require build/config/tests/config/helpers.js --reporter spec --compilers js:babel-core/register build/**/**/integration.*.js",
     "start-builded-app": "NODE_ENV=test node ./build/server.js",
     "start": "./node_modules/.bin/ts-node ./server/server.ts",
     "watch": "NODE_ENV=development ./node_modules/.bin/nodemon -w . --ext .ts --exec npm run start",

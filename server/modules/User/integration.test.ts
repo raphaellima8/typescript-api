@@ -4,15 +4,8 @@ import * as _ from 'lodash';
 import * as HTTPStatus from 'http-status';
 var model = require('../../models');
 
-if(process.env.TRAVIS == 'true') {
-  model.sequelize.sync().then(() => {
-    test();
-  });
-} else {
-  test();
-}
+  model.sequelize.sync().then(() => {});
 
-function test() {
   describe('## User Tests', () => {
     'use strict';
     const config = require('../../config/env/config')();
@@ -48,7 +41,7 @@ function test() {
             done();
         });
       });
-      done();
+      // done();
     });
 
     describe('GET /api/users/all', () => {
@@ -172,6 +165,4 @@ function test() {
           });
       });
     });
-
   });
-}
