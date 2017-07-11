@@ -11,10 +11,8 @@ env:
 addons:
   postgresql: "9.3"
 before_install:
-  - sudo /etc/init.d/postgresql stop 9.3
-  - sudo /etc/init.d/postgresql start 9.3
-  - psql -c 'create database api_test;'
-  - psql -c 'CREATE TABLE "Users" (id serial NOT NULL, name character varying(255) NOT NULL, email character varying(255) NOT NULL, password character varying(255) NOT NULL, "createdAt" timestamp with time zone NOT NULL, "updatedAt" timestamp with time zone NOT NULL, CONSTRAINT "Users_pkey" PRIMARY KEY (id));'
+  - psql -c 'create database api_test;' -U postgres
+  - psql -c 'CREATE TABLE "Users" (id serial NOT NULL, name character varying(255) NOT NULL, email character varying(255) NOT NULL, password character varying(255) NOT NULL, "createdAt" timestamp with time zone NOT NULL, "updatedAt" timestamp with time zone NOT NULL, CONSTRAINT "Users_pkey" PRIMARY KEY (id));' -U postgres
   - npm install
 script:
   - npm run dist-test
