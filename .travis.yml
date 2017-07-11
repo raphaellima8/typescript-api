@@ -19,4 +19,4 @@ before_install:
   - npm i -g typescript
   - npm install
 script:
-  - npm run start-builded-app
+  - npm run dist-test
