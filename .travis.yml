@@ -18,4 +18,4 @@ before_install:
   - npm i -g typescript
   - npm install
 script:
-- npm run integration-test
+- npm run dist-test
