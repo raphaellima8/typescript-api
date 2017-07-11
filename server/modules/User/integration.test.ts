@@ -6,9 +6,8 @@ var model = require('../../models');
 
 if(process.env.TRAVIS == 'true') {
   model.sequelize.sync().then(() => {
-    console.log('Testing...')
+    test();
   });
-  test();
 } else {
   test();
 }
@@ -17,7 +16,6 @@ function test() {
   describe('## User Tests', () => {
     'use strict';
     const config = require('../../config/env/config')();
-    // const model  = require('../../models');
 
     let id;
     let token;
@@ -50,6 +48,7 @@ function test() {
             done();
         });
       });
+      done();
     });
 
     describe('GET /api/users/all', () => {

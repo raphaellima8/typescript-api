@@ -5,9 +5,8 @@ var HTTPStatus = require("http-status");
 var model = require('../../models');
 if (process.env.TRAVIS == 'true') {
     model.sequelize.sync().then(function () {
-        console.log('Testing...');
+        test();
     });
-    test();
 }
 else {
     test();
@@ -45,6 +44,7 @@ function test() {
                     done();
                 });
             });
+            done();
         });
         describe('GET /api/users/all', function () {
             it('Should return a array of Users', function (done) {
