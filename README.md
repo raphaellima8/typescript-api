@@ -1,5 +1,9 @@
 # TypeScript API Starter - Node + TypeScript + Sequelize + PostgreSQL
 
+[![Build Status](https://travis-ci.org/raphaellima8/typescript-api.svg?branch=master)](https://travis-ci.org/raphaellima8/typescript-api)
+[![Code Health](https://landscape.io/github/raphaellima8/typescript-api/master/landscape.svg?style=flat)](https://landscape.io/github/raphaellima8/typescript-api/master)
+
+
 ## Dependencies
 * node
 * npm
