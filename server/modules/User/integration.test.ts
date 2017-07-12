@@ -7,7 +7,7 @@ var model = require('../../models');
 
   describe('## User Tests', () => {
     'use strict';
-    // model.sequelize.sync().then(() => {});
+    model.sequelize.sync().then(() => {});
     const config = require('../../config/env/config')();
 
     let id;
