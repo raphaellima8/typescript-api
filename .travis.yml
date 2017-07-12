@@ -1,3 +1,4 @@
+sudo: required
 language: node_js
 notifications:
   email: raphael.aolima8@gmail.com
@@ -11,7 +12,7 @@ env:
   - TRAVIS: true
 addons:
   postgresql: "9.3"
-before_install:
+before_script:
   - psql -c 'create database api_test;' -U postgres
   - npm install
 script:
