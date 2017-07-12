@@ -4,10 +4,10 @@ import * as _ from 'lodash';
 import * as HTTPStatus from 'http-status';
 var model = require('../../models');
 
+model.sequelize.sync().then(() => {});
 
   describe('## User Tests', () => {
     'use strict';
-    model.sequelize.sync().then(() => {});
     const config = require('../../config/env/config')();
 
     let id;
@@ -20,7 +20,7 @@ var model = require('../../models');
       password: 'testPassword'
     };
 
-    beforeEach((done) => {
+    before((done) => {
       model
         .User
         .destroy({
