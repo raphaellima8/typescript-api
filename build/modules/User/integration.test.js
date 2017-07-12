@@ -5,7 +5,6 @@ var HTTPStatus = require("http-status");
 var model = require('../../models');
 describe('## User Tests', function () {
     'use strict';
-    model.sequelize.sync().then(function () { });
     var config = require('../../config/env/config')();
     var id;
     var token;
