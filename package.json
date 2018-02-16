@@ -82,14 +82,14 @@
     "http": "0.0.0",
     "http-status": "^1.0.1",
     "human-readable-ids": "^1.0.1",
-    "jsonwebtoken": "^7.2.1",
+    "jsonwebtoken": "^8.0.0",
     "jwt-simple": "^0.5.1",
     "lodash": "^4.17.2",
     "morgan": "^1.7.0",
     "passport": "^0.3.2",
     "passport-jwt": "^2.2.1",
     "pg": "^6.1.2",
-    "sequelize": "^3.27.0",
+    "sequelize": "^4.0.0",
     "ts-node": "^1.7.3"
   }
 }
