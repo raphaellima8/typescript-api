@@ -11,7 +11,9 @@
     "start": "./node_modules/.bin/ts-node ./server/server.ts",
     "watch": "NODE_ENV=development ./node_modules/.bin/nodemon -w . --ext .ts --exec npm run start",
     "test:coverage": "nyc npm run test",
-    "run-builded": "NODE_ENV=development nodemon ./build/server.js"
+    "run-builded": "NODE_ENV=development nodemon ./build/server.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -90,6 +92,8 @@
     "passport-jwt": "^2.2.1",
     "pg": "^6.1.2",
     "sequelize": "^3.27.0",
-    "ts-node": "^1.7.3"
-  }
+    "ts-node": "^1.7.3",
+    "snyk": "^1.192.0"
+  },
+  "snyk": true
 }
