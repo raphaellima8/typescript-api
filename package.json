@@ -68,7 +68,7 @@
     "nyc": "^10.1.2",
     "supertest": "^3.0.0",
     "testdouble": "^1.11.2",
-    "ts-node": "^1.7.2",
+    "ts-node": "^3.2.0",
     "typescript": "^2.0.6"
   },
   "dependencies": {
@@ -90,6 +90,6 @@
     "passport-jwt": "^2.2.1",
     "pg": "^6.1.2",
     "sequelize": "^3.27.0",
-    "ts-node": "^1.7.3"
+    "ts-node": "^3.2.0"
   }
 }
