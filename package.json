@@ -89,7 +89,7 @@
     "passport": "^0.3.2",
     "passport-jwt": "^2.2.1",
     "pg": "^6.1.2",
-    "sequelize": "^3.27.0",
+    "sequelize": "^6.19.1",
     "ts-node": "^1.7.3"
   }
 }
