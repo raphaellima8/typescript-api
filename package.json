@@ -88,8 +88,8 @@
     "morgan": "^1.7.0",
     "passport": "^0.3.2",
     "passport-jwt": "^2.2.1",
-    "pg": "^6.1.2",
-    "sequelize": "^3.27.0",
+    "pg": "^8.4.0",
+    "sequelize": "^6.1.0",
     "ts-node": "^1.7.3"
   }
 }
